@@ -112,6 +112,7 @@ void loop()
                 pButtonTimeout = buttonTimeout2;
             }
             setFrequencyIndex++;
+            frequencyChangedMillis = millis();
             pButtonPressedMillis = millis();
         }
     } else {
@@ -131,6 +132,7 @@ void loop()
                 nButtonTimeout = buttonTimeout2;
             }
             setFrequencyIndex--;
+            frequencyChangedMillis = millis();
             nButtonPressedMillis = millis();
         }
     } else {
@@ -152,7 +154,6 @@ void loop()
     }
 
     if (setFrequencyIndex == savedFrequencyIndex) {
-        frequencyChangedMillis = millis();
         digitalWrite(13, LOW);
     } else {
         digitalWrite(13, HIGH);
