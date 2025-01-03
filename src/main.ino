@@ -13,7 +13,7 @@
 #include <SPI.h>
 #include <Wire.h>
 
-CHSV color = CHSV(160, 255, 255);
+CHSV color = CHSV(155, 230, 255);
 
 const unsigned long lockTimeMillis = 4000; // this many milliseconds after a frequency change, the frequency is saved to EEPROM
 unsigned long blinkDurationMicros = 50000; // the led turns on for this many microseconds
@@ -61,7 +61,6 @@ unsigned long nButtonTimeout = buttonTimeout1;
 
 void setup()
 {
-    Serial.begin(9600);
     pinMode(pButtonPin, INPUT_PULLUP);
     pinMode(nButtonPin, INPUT_PULLUP);
     FastLED.addLeds<APA102, PIN_DOTSTAR_DATA, PIN_DOTSTAR_CLK, BGR>(&led, 1);
@@ -69,7 +68,6 @@ void setup()
     FastLED.show();
 
     if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
-        Serial.println(F("SSD1306 allocation failed"));
         for (;;)
             ; // Don't proceed, loop forever
     }
@@ -82,7 +80,6 @@ void setup()
         EEPROM.commit();
     }
     if (EEPROM.isValid() == false) {
-        Serial.println("eeprom failed");
         for (;;)
             ;
     }
