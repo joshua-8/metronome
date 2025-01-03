@@ -13,10 +13,10 @@
 #include <SPI.h>
 #include <Wire.h>
 
-CHSV color = CHSV(166, 255, 255);
+CHSV color = CHSV(160, 255, 255);
 
 const unsigned long lockTimeMillis = 4000; // this many milliseconds after a frequency change, the frequency is saved to EEPROM
-unsigned long blinkDurationMicros = 25000; // the led turns on for this many microseconds
+unsigned long blinkDurationMicros = 50000; // the led turns on for this many microseconds
 const unsigned long buttonTimeout1 = 50;
 const unsigned long buttonTimeout2 = 500;
 const unsigned long buttonTimeout3 = 75;
