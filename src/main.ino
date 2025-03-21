@@ -3,6 +3,7 @@
  * Uses a 128x32 OLED display and a Trinket M0.
  * Wire two buttons between ground and pin 3 and pin 4.
  * v1.0 2025-01-02 by joshua-8
+ * v1.1 2025-03-21 by joshua-8 - flip screen upside down
  */
 
 #include <Adafruit_GFX.h>
@@ -88,7 +89,7 @@ void setup()
     setFrequencyIndex = EEPROM.read(frequency_eeprom_address);
     savedFrequencyIndex = setFrequencyIndex;
 
-    display.setRotation(0);
+    display.setRotation(2);
     display.setTextSize(1);
     display.setTextColor(SSD1306_WHITE); // Draw white text
     display.clearDisplay();
